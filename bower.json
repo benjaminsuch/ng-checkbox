@@ -1,0 +1,20 @@
+{
+  "name": "ng-checkbox",
+  "description": "Custom checkboxes for Angular 1.x",
+  "main": "dist/ng-checkbox.min.js",
+  "authors": [
+    "Benjamin Such"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/benjaminsuch/ng-checkbox",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "1.4"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="example">
+	<head>
+		<title>ngCheckbox</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="ng-checkbox.css" rel="stylesheet">
+		<style rel="stylesheet">
+			body {
+				font-family: sans-serif, Arial, Verdana;
+			}
+		</style>
+	</head>
+	<body ng-controller="TestController as test">
+		<button ng-click="test.change();">Change</button>
+		<form name="form">
+			<input type="text" ng-model="test.myCheckbox">
+			<label>
+				<ng-checkbox name="myCheckbox"
+				             ng-checkbox-options="{}"
+				             ng-checkbox-checked="test.checkedVal"
+				             ng-checkbox-unchecked="'bar'"
+				             ng-model="test.myCheckbox">
+				</ng-checkbox>
+				LUL
+			</label>
+			<pre>{{form.myCheckbox | json}}</pre>
+		</form>
+		<script src="vendor/angular/angular.js" type="text/javascript"></script>
+		<script src="ng-checkbox.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var app = angular.module('example', ['ngCheckbox']);
+			app.controller('TestController', function() {
+				this.myCheckbox = 'olm';
+
+				this.checkedVal = 'olm';
+
+				this.options = {
+					checkedClass: 'glyphicon glyphicon-music',
+					uncheckedClass: 'glyphicon glyphicon-heart'
+				};
+
+				this.change = () => {
+					if (this.checkedVal === 'olm') {
+						this.checkedVal = 'foo';
+					} else {
+						this.checkedVal = 'olm';
+					}
+				};
+			});
+		</script>
+	</body>
+</html>
