@@ -32,7 +32,7 @@
   function ngCheckboxController($scope) {
     const defaultOptions = {
       checkedClass: 'glyphicon glyphicon-ok',
-      uncheckedClass: ''
+      uncheckedClass: 'glyphicon'
     };
 
     $scope.options = {};
