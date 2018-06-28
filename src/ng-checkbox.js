@@ -11,8 +11,8 @@
       scope: {
         currentVal: '=ngModel',
         ngCheckboxOptions: '=',
-        ngCheckboxChecked: '=',
-        ngCheckboxUnchecked: '=',
+        checked: '=',
+        unchecked: '=',
         disabled: '='
       },
       template: '<button class="ng-checkbox" ng-class="{checked: currentVal === checkedVal, unchecked: currentVal !== checkedVal}" type="button" ng-click="toggle();" ng-disabled="disabled">' +
@@ -30,12 +30,12 @@
           scope.currentVal = scope.currentVal === scope.checkedVal ? scope.uncheckedVal : scope.checkedVal;
         };
     
-        scope.$watch('ngCheckboxChecked', val => {
+        scope.$watch('checked', val => {
           scope.checkedVal = val ? val : true;
           ngModelController.$validate();
         });
     
-        scope.$watch('ngCheckboxUnchecked', val => {
+        scope.$watch('unchecked', val => {
           scope.uncheckedVal = val ? val : false;
           ngModelController.$validate();
         });
@@ -43,6 +43,10 @@
         scope.$watchCollection('ngCheckboxOptions', (val = {}) => {
           angular.extend(scope.options, defaultOptions, val);
         });
+
+        if (angular.isUndefined(scope.currentVal)) {
+          scope.currentVal = false;
+        }
 
         ngModelController.$validators.invalid = (modelValue, viewValue) => {
           let val = modelValue || viewValue;

@@ -18,7 +18,7 @@
 		<form name="form">
 			<input type="text" ng-model="test.myCheckbox">
 			<label>
-				<ng-checkbox name="myCheckbox" ng-model="test.myCheckbox"></ng-checkbox>
+				<ng-checkbox name="myCheckbox" ng-model="test.myCheckbox" checked="test.checkedVal" unchecked="'foo'"></ng-checkbox>
 				LUL
 			</label>
 			<pre>{{form.myCheckbox | json}}</pre>
@@ -28,7 +28,7 @@
 		<script type="text/javascript">
 			var app = angular.module('example', ['ngCheckbox']);
 			app.controller('TestController', function() {
-				this.myCheckbox = true;
+				this.myCheckbox = 'olm';
 
 				this.checkedVal = 'olm';
 
